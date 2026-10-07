@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
-from config import settings
+from app.database.config import settings
 
 engine = create_async_engine(settings.DATABASE_URL_asyncpg)
 

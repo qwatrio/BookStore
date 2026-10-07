@@ -1,5 +1,6 @@
 from contextlib import asynccontextmanager
 
+import uvicorn
 from fastapi import FastAPI
 
 from app.database.database import engine
@@ -29,3 +30,6 @@ app.include_router(auth.router)
 app.include_router(books.router)
 app.include_router(comments.router)
 app.include_router(user.router)
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", reload=True)
