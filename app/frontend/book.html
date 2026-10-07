@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Пример книги — Философский камень</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container header__inner">
+
+        <a href="index.html" class="logo">
+            Философский камень
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">Каталог</a>
+            <a href="login.html">Войти</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="book-page">
+        <div class="container">
+
+            <a href="index.html" class="book-page__back">
+                ← Вернуться к каталогу
+            </a>
+
+
+            <div class="book">
+
+                <div class="book__cover">
+                    <img
+                            id="book-cover"
+                            src=""
+                            alt="Обложка книги"
+                    >
+                </div>
+
+
+                <div class="book__info">
+
+                    <h1 class="book__title" id="book-title"></h1>
+                    <p class="book__author" id="book-author"></p>
+                    <div class="book__details">
+
+                        <div class="book__detail">
+                            <span id="book-year"></span>
+                        </div>
+
+
+                        <div class="book__detail">
+                            <span id="book-genre"></span>
+                        </div>
+
+
+                        <div class="book__detail">
+                            <span id="book-isbn"></span>
+                        </div>
+
+                    </div>
+
+
+                    <p id="book-summary"></p>
+                </div>
+
+            </div>
+
+
+            <section class="comments">
+    <h2 class="comments__title">Комментарии</h2>
+
+    <div id="comments-container"></div>
+
+    <div class="comment-form">
+        <h3 class="comment-form__title">Оставить комментарий</h3>
+
+        <textarea
+            id="comment-text"
+            class="comment-form__textarea"
+            placeholder="Введите комментарий..."
+        ></textarea>
+
+        <button
+            id="comment-submit"
+            class="comment-form__button"
+        >
+            Отправить
+        </button>
+
+        <p id="comment-message"></p>
+    </div>
+</section>
+        </div>
+    </section>
+
+</main>
+<script src="js/book.js"></script>
+</body>
+</html>

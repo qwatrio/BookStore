@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Философский камень</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header__inner">
+
+        <a href="index.html" class="logo">
+            Философский камень
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">Каталог</a>
+
+            <a href="login.html" id="login-link">
+                Войти
+            </a>
+
+            <a href="register.html" id="register-link">
+                Зарегистрироваться
+            </a>
+            <a href="#" id="logout-link">
+                Выйти
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="catalog">
+        <div class="container">
+
+            <h1 class="catalog__title">
+                Книги
+            </h1>
+
+            <div class="genres">
+                <a href="index.html">Все</a>
+                <a href="index.html?genre=psychology">Психология</a>
+                <a href="index.html?genre=classic">Классика</a>
+                <a href="index.html?genre=prose">Проза</a>
+                <a href="index.html?genre=horror">Ужасы</a>
+                <a href="index.html?genre=non_fiction">Нон-фикшн</a>
+            </div>
+
+            <div class="books" id="books-container">
+            </div>
+        </div>
+    </section>
+
+</main>
+<script src="js/catalog.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

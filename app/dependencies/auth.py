@@ -4,7 +4,7 @@ import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import (
     HTTPAuthorizationCredentials,
-    HTTPBearer,
+    HTTPBearer, HTTPBasic, HTTPBasicCredentials,
 )
 from pwdlib import PasswordHash
 from sqlalchemy import select
@@ -18,7 +18,7 @@ from app.database.models import UserModel, UserRole
 password_hash = PasswordHash.recommended()
 
 security = HTTPBearer()
-
+basic_security = HTTPBasic()
 
 def hash_password(password: str) -> str:
     return password_hash.hash(password)
@@ -107,3 +107,32 @@ async def get_current_admin(
         )
 
     return current_user
+async def get_docs_admin(
+    credentials: HTTPBasicCredentials = Depends(basic_security),
+    db: AsyncSession = Depends(get_session),
+) -> UserModel:
+    result = await db.execute(
+        select(UserModel).where(
+            UserModel.email == credentials.username
+        )
+    )
+
+    user = result.scalar_one_or_none()
+
+    if user is None or not verify_password(
+        credentials.password,
+        user.password_hash
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials",
+            headers={"WWW-Authenticate": "Basic"},
+        )
+
+    if user.role != UserRole.ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin access required",
+        )
+
+    return user
