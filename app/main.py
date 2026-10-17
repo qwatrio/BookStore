@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-
 import uvicorn
 from fastapi import FastAPI, Depends
 from fastapi.openapi.docs import get_swagger_ui_html
@@ -33,6 +32,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://127.0.0.1:5500",
+        "https://bookstore-onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],

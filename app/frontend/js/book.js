@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://backendbookstore-onrender.com";
 const urlParams = new URLSearchParams(window.location.search);
 const bookId = urlParams.get("id");
 const commentText = document.querySelector("#comment-text");
