@@ -32,7 +32,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://127.0.0.1:5500",
-        "https://bookstore-onrender.com"
+        "https://bookstore-tq8k.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
