@@ -2,10 +2,8 @@ from datetime import datetime, timedelta, timezone
 
 import jwt
 from fastapi import Depends, HTTPException, status
-from fastapi.security import (
-    HTTPAuthorizationCredentials,
-    HTTPBearer, HTTPBasic, HTTPBasicCredentials,
-)
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer, HTTPBasic, HTTPBasicCredentials
+
 from pwdlib import PasswordHash
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession

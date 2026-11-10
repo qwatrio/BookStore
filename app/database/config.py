@@ -1,8 +1,7 @@
-from pathlib import Path
+import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-ENV_FILE = BASE_DIR / ".env"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ENV_FILE = os.path.join(BASE_DIR, ".env")
 
 class Settings(BaseSettings):
     DB_NAME: str
@@ -26,5 +25,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
 
